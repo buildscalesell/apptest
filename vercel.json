@@ -1,0 +1,13 @@
+{
+    "projects": [],
+    "build": {
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "includeFiles": ["packages/shared/**"],
+    "rewrites": [],
+    "ignoreCommand": "echo 'Ignore unused'",
+    "outputDirectory": "apps/frontend/dist"
+  }
+  
