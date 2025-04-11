@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": {
-    "prebuild": "mkdir -p packages && cp -r ../../packages/shared ./packages/shared",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+  "scripts": {  
+  "build": "mkdir -p packages && cp -r ../../packages/shared ./packages/shared && vite build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
