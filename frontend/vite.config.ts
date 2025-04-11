@@ -7,8 +7,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
-      "@shared": path.resolve(__dirname, "../../packages/shared")
-    }
+      "@shared": path.resolve(__dirname, "packages/shared") // ✅ dort kopiert Vercel es ja hin
+    }    
   },
   server: {
     port: 5173,
