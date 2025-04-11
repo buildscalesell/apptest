@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Input } from "@/components/ui/input"
+import { Input } from "@shared/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import {
@@ -9,6 +9,9 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card"
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import LoginPage from "./pages/LoginPage"
+import DashboardPage from "./pages/DashboardPage"
 
 export default function App() {
   const [name, setName] = useState("")
@@ -53,6 +56,23 @@ export default function App() {
     setName("")
     setPassword("")
   }
+  function App() {
+    return (
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/dashboard" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
+        </Routes>
+      </Router>
+    )
+  }
+  
+  function PrivateRoute({ children }: { children: JSX.Element }) {
+    const token = localStorage.getItem("access_token")
+    return token ? children : <Navigate to="/login" />
+  }
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
