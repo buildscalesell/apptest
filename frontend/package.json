@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "echo Copying shared... && mkdir -p packages && cp -R ../../packages/shared ./packages/shared && vite build",
+    "build": "echo Copying shared... && rm -rf packages/shared && mkdir -p packages/shared && cp -R ../../packages/shared/ui ./packages/shared && vite build",
     "dev": "vite",
     "preview": "vite preview"
   },
@@ -23,8 +23,10 @@
     "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
+    "clsx": "^2.1.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.4.3",
+    "tailwind-merge": "^2.2.1",
     "typescript": "^5.3.3",
     "vite": "^5.1.4"
   }
